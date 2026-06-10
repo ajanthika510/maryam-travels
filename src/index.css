@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* Premium Gradient */
+.primary-gradient {
+  background: linear-gradient(
+    135deg,
+    #0ea5e9 0%,
+    #06b6d4 100%
+  );
+}
+@keyframes floatCard {
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-10px);
+  }
+}
+
+.float-card{
+  animation:floatCard 6s ease-in-out infinite;
+}
+/* Luxury Gold */
+.gold-gradient {
+  background: linear-gradient(
+    135deg,
+    #f59e0b 0%,
+    #fbbf24 100%
+  );
+}
+
+/* Glass Card */
+.glass-card {
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+/* Hover Lift */
+.hover-lift {
+  transition: all .4s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+/* Floating */
+@keyframes float {
+  0% {transform:translateY(0);}
+  50% {transform:translateY(-15px);}
+  100% {transform:translateY(0);}
+}
+
+.float-animation {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-card {
+  animation: floatCard 5s ease-in-out infinite;
+}
+
+@keyframes slowZoom {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+.animate-slowZoom {
+  animation: slowZoom 18s linear infinite alternate;
+}
