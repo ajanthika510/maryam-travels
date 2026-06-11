@@ -82,20 +82,6 @@ export default function Services() {
                     {service.desc}
                   </p>
 
-                  {/* Hover Button */}
-                  <div className="mt-6">
-
-                    <button className="group/btn flex items-center gap-2 text-amber-400 font-medium">
-
-                      Explore
-
-                      <span className="transition-transform group-hover/btn:translate-x-2">
-                        →
-                      </span>
-
-                    </button>
-
-                  </div>
 
                   {/* Decorative Circle */}
                   <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-amber-400/10 rounded-full" />
