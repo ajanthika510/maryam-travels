@@ -16,7 +16,7 @@ export default function SafariCatalog() {
       {/* Hero */}
       <section className="relative h-[60vh] overflow-hidden">
         <img
-          src="/safari.png"
+          src="/safari.webp"
           alt="Safari"
           className="w-full h-full object-cover"
         />

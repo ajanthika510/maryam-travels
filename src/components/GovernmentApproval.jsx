@@ -167,31 +167,33 @@ export default function GovernmentApproval() {
                 show: { opacity: 1 },
               }}
             >
-              <div className="bg-white rounded-2xl p-5 shadow-lg text-center">
-                <h3 className="text-2xl font-black text-sky-600">
-                  SLTDA
-                </h3>
-                <p className="text-sm text-gray-500">
-                  Registered
-                </p>
-              </div>
+             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="bg-white rounded-2xl p-4 sm:p-5 shadow-lg text-center">
+                  <h3 className="text-xl sm:text-2xl font-black text-sky-600">
+                    SLTDA
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-500">
+                    Registered
+                  </p>
+                </div>
 
-              <div className="bg-white rounded-2xl p-5 shadow-lg text-center">
-                <h3 className="text-2xl font-black text-green-600">
-                  24/7
-                </h3>
-                <p className="text-sm text-gray-500">
-                  Support
-                </p>
-              </div>
+                <div className="bg-white rounded-2xl p-4 sm:p-5 shadow-lg text-center">
+                  <h3 className="text-xl sm:text-2xl font-black text-green-600">
+                    24/7
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-500">
+                    Support
+                  </p>
+                </div>
 
-              <div className="bg-white rounded-2xl p-5 shadow-lg text-center">
-                <h3 className="text-2xl font-black text-amber-500">
-                  Islandwide
-                </h3>
-                <p className="text-sm text-gray-500">
-                  Coverage
-                </p>
+                <div className="bg-white rounded-2xl p-4 sm:p-5 shadow-lg text-center">
+                  <h3 className="text-xl sm:text-2xl font-black text-amber-500">
+                    Islandwide
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-500">
+                    Coverage
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>

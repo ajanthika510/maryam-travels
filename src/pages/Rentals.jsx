@@ -18,6 +18,118 @@ import {
   FaHeadset,
 } from "react-icons/fa";
 
+function Input({
+  icon,
+  name,
+  type = "text",
+  placeholder,
+  min,
+  value,
+  onChange,
+  error,
+}) {
+  return (
+    <div>
+      <div className="relative">
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-sky-500 z-10">
+          {icon}
+        </div>
+
+        <input
+          name={name}
+          type={type}
+          min={min}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          autoComplete="off"
+          className="
+            w-full
+            h-12
+            md:h-14
+            pl-12
+            pr-4
+            text-sm
+            md:text-base
+            rounded-2xl
+            border
+            border-slate-200
+            bg-white/80
+            backdrop-blur-sm
+            shadow-sm
+            focus:ring-4
+            focus:ring-sky-200
+            focus:border-sky-500
+            outline-none
+            transition-all
+            duration-300
+            hover:border-sky-300
+          "
+        />
+      </div>
+
+      {error && (
+        <p className="text-red-500 text-xs mt-1">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
+function Select({
+  name,
+  options,
+  placeholder,
+  value,
+  onChange,
+  error,
+}) {
+  return (
+    <div>
+      <label className="block mb-2 text-sm font-medium text-slate-700">
+        {placeholder}
+      </label>
+
+      <select
+        name={name}
+        value={value}
+        onChange={onChange}
+        className="
+          w-full
+          h-12
+          md:h-14
+          px-4
+          text-sm
+          md:text-base
+          rounded-2xl
+          border
+          border-slate-200
+          bg-white
+          focus:ring-4
+          focus:ring-sky-200
+          focus:border-sky-500
+          outline-none
+        "
+      >
+        <option value="">Select</option>
+
+        {options.map((o) => (
+          <option key={o} value={o}>
+            {o}
+          </option>
+        ))}
+      </select>
+
+      {error && (
+        <p className="text-red-500 text-xs mt-1">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function Rentals() {
   const today = new Date().toISOString().split("T")[0];
 
@@ -116,107 +228,6 @@ ${form.message || "None"}
       "_blank"
     );
   };
-
-  const Input = ({
-  icon,
-  name,
-  type = "text",
-  placeholder,
-  min,
-}) => (
-  <div>
-    <div className="relative">
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-sky-500 z-10">
-        {icon}
-      </div>
-
-      <input
-        name={name}
-        type={type}
-        min={min}
-        value={form[name]}
-        onChange={handleChange}
-        placeholder={placeholder}
-        className="
-        w-full
-        h-12
-        md:h-14
-        pl-12
-        pr-4
-        text-sm
-        md:text-base
-        rounded-2xl
-        border
-        border-slate-200
-        bg-white/80
-        backdrop-blur-sm
-        shadow-sm
-        focus:ring-4
-        focus:ring-sky-200
-        focus:border-sky-500
-        outline-none
-        transition-all
-        duration-300
-        hover:border-sky-300
-        "
-      />
-    </div>
-
-    {errors[name] && (
-      <p className="text-red-500 text-xs mt-1">
-        {errors[name]}
-      </p>
-    )}
-  </div>
-);
-
- const Select = ({
-  name,
-  options,
-  placeholder,
-}) => (
-  <div>
-    <label className="block mb-2 text-sm font-medium text-slate-700">
-      {placeholder}
-    </label>
-
-    <select
-      name={name}
-      value={form[name]}
-      onChange={handleChange}
-      className="
-      w-full
-      h-12
-      md:h-14
-      px-4
-      text-sm
-      md:text-base
-      rounded-2xl
-      border
-      border-slate-200
-      bg-white
-      focus:ring-4
-      focus:ring-sky-200
-      focus:border-sky-500
-      outline-none
-      "
-    >
-      <option value="">Select</option>
-
-      {options.map((o) => (
-        <option key={o} value={o}>
-          {o}
-        </option>
-      ))}
-    </select>
-
-    {errors[name] && (
-      <p className="text-red-500 text-xs mt-1">
-        {errors[name]}
-      </p>
-    )}
-  </div>
-);
 
   return (
     <>
@@ -548,23 +559,57 @@ ${form.message || "None"}
       {/* FORM GRID */}
 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
 
-  <Input icon={<FaUser />} name="name" placeholder="Full Name" />
-  <Input icon={<FaGlobe />} name="country" placeholder="Country" />
-  <Input icon={<FaWhatsapp />} name="phone" placeholder="WhatsApp Number" />
-  <Input icon={<FaEnvelope />} name="email" placeholder="Email Address" />
+<Input
+  icon={<FaUser />}
+  name="name"
+  placeholder="Full Name"
+  value={form.name}
+  onChange={handleChange}
+  error={errors.name}
+/>
+<Input
+  icon={<FaGlobe />}
+  name="country"
+  placeholder="Country"
+  value={form.country}
+  onChange={handleChange}
+  error={errors.country}
+/>
+<Input
+  icon={<FaWhatsapp />}
+  name="phone"
+  placeholder="WhatsApp Number"
+  value={form.phone}
+  onChange={handleChange}
+  error={errors.phone}
+/>
+<Input
+  icon={<FaEnvelope />}
+  name="email"
+  placeholder="Email Address"
+  value={form.email}
+  onChange={handleChange}
+  error={errors.email}
+/>
 
   <Select
-    name="vehicle"
-    placeholder="Vehicle Type"
-    options={["Scooter", "Tuk Tuk"]}
-  />
+  name="vehicle"
+  placeholder="Vehicle Type"
+  options={["Scooter", "Tuk Tuk"]}
+  value={form.vehicle}
+  onChange={handleChange}
+  error={errors.vehicle}
+/>
 
   <Input
-    icon={<FaUsers />}
-    type="number"
-    name="travelers"
-    placeholder="Number of Travelers"
-  />
+  icon={<FaUsers />}
+  type="number"
+  name="travelers"
+  placeholder="Number of Travelers"
+  value={form.travelers}
+  onChange={handleChange}
+  error={errors.travelers}
+/>
 
   {/* ✅ RENTAL PERIOD FULL WIDTH */}
   <div className="md:col-span-2">
@@ -638,6 +683,9 @@ ${form.message || "None"}
           name="license"
           placeholder="Do you have a driving license?"
           options={["Yes", "No"]}
+          value={form.license}
+          onChange={handleChange}
+          error={errors.license}
         />
       </div>
 

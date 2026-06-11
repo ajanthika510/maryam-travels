@@ -35,7 +35,20 @@ export default function BookingForm() {
   const travellerTypes = ["Solo", "Couple", "Family", "Group"];
   const vehicles = ["Mini Car", "Sedan", "Van", "High Roof"];
 
-  const next = () => setStep((s) => Math.min(s + 1, 5));
+  const next = () => {
+  // Redirect to Rentals page when Scooter Rental is selected
+  if (step === 1 && form.experience === "Scooter Rental") {
+    navigate("/rentals");
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    return;
+  }
+
+  setStep((s) => Math.min(s + 1, 5));
+};
+
   const back = () => setStep((s) => Math.max(s - 1, 1));
 
   const isStep1Valid = form.experience !== "";
