@@ -58,7 +58,7 @@ export default function About() {
             {/* Image */}
             <div>
               <img
-                src="/owner.png"
+                src="/owner.webp"
                 alt="Maryam Tours"
                 className="rounded-3xl shadow-2xl w-full object-cover"
               />
